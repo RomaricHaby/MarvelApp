@@ -3,17 +3,23 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+Properties loadProperties(String path) {
+    def propertiesFile = rootProject.file(path)
+    def properties = new Properties()
+    properties.load(new FileInputStream(propertiesFile))
+    return properties
+}
+
+def keyStoreProperties = loadProperties("keystore.properties")
+def apiKeyProperties = loadProperties("local.properties")
 
 android {
     signingConfigs {
         production {
-            storePassword keystoreProperties['storePassword']
-            keyPassword keystoreProperties['keyPassword']
-            keyAlias keystoreProperties['keyAlias']
-            storeFile file(keystoreProperties['storeFile'])
+            storePassword keyStoreProperties['storePassword']
+            keyPassword keyStoreProperties['keyPassword']
+            keyAlias keyStoreProperties['keyAlias']
+            storeFile file(keyStoreProperties['storeFile'])
         }
     }
 
@@ -29,7 +35,35 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "environment"
+    productFlavors{
+        development {
+            dimension "environment"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix '-dev'
+            ext {
+                BASE_URL = "http://gateway.marvel.com"
+            }
+        }
+
+
+        applicationVariants.all { variant ->
+
+            def dimensions = variant.productFlavors
+            def environment = dimensions[0]
+
+            def BASE_URL = environment.ext.BASE_URL
+            variant.buildConfigField "String", "BASE_URL", "\"$BASE_URL\""
+
+        }
+    }
+
+
     buildTypes {
+        debug {
+            buildConfigField("String", "marvel_api_private", apiKeyProperties["marvelAPIPrivate"])
+            buildConfigField("String", "marvel_api_public", apiKeyProperties["marvelAPIPublic"])
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

@@ -13,29 +13,27 @@ jobs:
       - run: |
           KEYSTORE_P12_ASC_FILE="keystore.asc"
           echo "${{ secrets.KEYSTORE_P12}}">> "${KEYSTORE_P12_ASC_FILE}"
-         gpg \
-          -d \
-          --batch \
-          --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-          "${{KEYSTORE_P12_ASC_FILE}}"> "keystore.p12"
+          gpg \
+            -d \
+            --batch \
+            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            "${{KEYSTORE_P12_ASC_FILE}}"> "keystore.p12"
       - run: |
-
           KEYSTORE_PROPERTIES_ASC_FILE="keystore.asc"
           echo "${{ secrets.KEYSTORE_PROPERTIES}}">> "${KEYSTORE_PROPERTIES_ASC_FILE}"
           gpg \
-           -d \
-           --batch \
-           --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-           "${{ KEYSTORE_PROPERTIES_ASC_FILE}}"> "keystore.properties"
+            -d \
+            --batch \
+            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            "${{ KEYSTORE_PROPERTIES_ASC_FILE}}"> "keystore.properties"
       - run: |
-
           API_PRIVATE_KEY_MARVEL_ASC_FILE="apimarvel.asc"
           echo "${{ secrets.API_PRIVATEKEY_MARVEL}}">> "${API_PRIVATE_KEY_MARVEL_ASC_FILE}"
           gpg \
-           -d \
-           --batch \
-           --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-             "${{ API_PRIVATE_KEY_MARVEL_ASC_FILE}}"> "apimarvel.properties"
+            -d \
+            --batch \
+            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            "${{ API_PRIVATE_KEY_MARVEL_ASC_FILE}}"> "apimarvel.properties"
 
       - run: ./gradlew -Pversion.buildNumber="${GITHUB_RUN_NUMBER}" assembleDevelopmentDebug
       - uses: actions/upload-artifact@v3

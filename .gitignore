@@ -71,7 +71,6 @@ gen-external-apklibs
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -127,6 +126,9 @@ proguard/
 # Keystore files
 *.p12
 keystore.properties
+
+#Api key
+apimarvel.properties
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
@@ -197,9 +199,5 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
-### AndroidStudio Patch ###
-
-!/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,git

@@ -11,7 +11,7 @@ Properties loadProperties(String path) {
 }
 
 def keyStoreProperties = loadProperties("keystore.properties")
-def apiKeyProperties = loadProperties("local.properties")
+def apiKeyProperties = loadProperties("apimarvel.properties")
 
 android {
     signingConfigs {

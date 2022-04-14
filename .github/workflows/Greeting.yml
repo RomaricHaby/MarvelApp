@@ -25,7 +25,7 @@ jobs:
             -d \
             --batch \
             --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-            "${ KEYSTORE_PROPERTIES_ASC_FILE}"> "keystore.properties"
+            "${KEYSTORE_PROPERTIES_ASC_FILE}"> "keystore.properties"
       - run: |
           API_PRIVATE_KEY_MARVEL_ASC_FILE="apimarvel.asc"
           echo "${{ secrets.API_PRIVATEKEY_MARVEL}}">> "${API_PRIVATE_KEY_MARVEL_ASC_FILE}"

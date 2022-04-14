@@ -20,12 +20,12 @@ if [ -z "${1}" ]; then
 fi
 
 #Test if the second arg not empty
-if [ -z "${1}" ]; then
+if [ -z "${2}" ]; then
   exit 12
 fi
 
 #Test if the third arg not empty
-if [ -z "${2}" ]; then
+if [ -z "${3}" ]; then
   exit 13
 fi
 
@@ -34,5 +34,5 @@ gpg -c \
 --batch \
 --armor \
 --passphrase "${1}" \
---output  "${2}" \
-"${3}"
+--output  "${3}" \
+"${2}"

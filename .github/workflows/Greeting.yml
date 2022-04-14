@@ -19,7 +19,7 @@ jobs:
             --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
             "${{KEYSTORE_P12_ASC_FILE}}"> "keystore.p12"
       - run: |
-          KEYSTORE_PROPERTIES_ASC_FILE="keystore.asc"
+          KEYSTORE_PROPERTIES_ASC_FILE="keystore_properties.asc"
           echo "${{ secrets.KEYSTORE_PROPERTIES}}">> "${KEYSTORE_PROPERTIES_ASC_FILE}"
           gpg \
             -d \

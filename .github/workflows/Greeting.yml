@@ -1,0 +1,13 @@
+
+name: Greeting
+on:
+  push:
+    branches:
+      - 'feature/*'
+jobs:
+  print_hello_world:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - run : echo "Hello, World"
+

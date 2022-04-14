@@ -29,8 +29,16 @@ android {
         applicationId "com.marvelapp"
         minSdk 24
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
+
+
+        def major = Integer.parseInt(property('version.major'))
+        def minor = Integer.parseInt(property('version.minor'))
+        def patch = Integer.parseInt(property('version.patch'))
+        def buildNumber = Integer.parseInt(property('version.buildNumber'))
+
+
+        versionCode buildNumber
+        versionName "${major}.${minor}.${patch}-b${buildNumber}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -88,4 +96,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
 }

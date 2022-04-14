@@ -26,7 +26,7 @@ jobs:
            -d \
            --batch \
            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-           "${{ KEYSTORE_PROPERTIES_ASC_FILE}}">> "keystore.properties"
+           "${{ KEYSTORE_PROPERTIES_ASC_FILE}}"> "keystore.properties"
       - run: |
 
           API_PRIVATE_KEY_MARVEL_ASC_FILE="apimarvel.asc"
@@ -35,7 +35,7 @@ jobs:
            -d \
            --batch \
            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
-             "${{ API_PRIVATE_KEY_MARVEL_ASC_FILE}}">> "apimarvel.properties"
+             "${{ API_PRIVATE_KEY_MARVEL_ASC_FILE}}"> "apimarvel.properties"
 
       - run: ./gradlew -Pversion.buildNumber="${GITHUB_RUN_NUMBER}" assembleDevelopmentDebug
       - uses: actions/upload-artifact@v3

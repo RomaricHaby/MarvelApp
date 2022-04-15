@@ -44,7 +44,7 @@ android {
     }
 
     flavorDimensions "environment"
-    productFlavors{
+    productFlavors {
         development {
             dimension "environment"
             applicationIdSuffix = ".dev"
@@ -115,7 +115,6 @@ dependencies {
     testImplementation "io.insert-koin:koin-test:3.1.6"
 
 
-
     def nav_version = "2.4.2"
 
     // Java language implementation
@@ -135,5 +134,10 @@ dependencies {
     // Jetpack Compose Integration
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
 
 }

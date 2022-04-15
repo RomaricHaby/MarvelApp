@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/listCharacterFragment"
-        android:name="com.marvelapp.ui.fragment.ListCharacterFragment"
+        android:name="com.marvelapp.ui.fragment.characterlist.CharacterListFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_list_character" >
+        tools:layout="@layout/fragment_list_character">
         <action
             android:id="@+id/action_mainFragment_to_detailCharacterFragment"
             app:destination="@id/detailCharacterFragment" />

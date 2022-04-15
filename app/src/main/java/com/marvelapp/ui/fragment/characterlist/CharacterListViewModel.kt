@@ -1,4 +1,4 @@
-package com.marvelapp.ui
+package com.marvelapp.ui.fragment.characterlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

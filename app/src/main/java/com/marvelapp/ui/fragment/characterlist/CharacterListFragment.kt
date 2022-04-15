@@ -1,4 +1,4 @@
-package com.marvelapp.ui.fragment
+package com.marvelapp.ui.fragment.characterlist
 
 import android.os.Bundle
 import android.util.Log
@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.marvelapp.R
-import com.marvelapp.ui.CharacterListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ListCharacterFragment : Fragment() {
+class CharacterListFragment : Fragment() {
 
     companion object {
-        private const val TAG = "ListCharacterFragment"
+        private const val TAG = "CharacterListFragment"
     }
 
     private val viewModel by viewModel<CharacterListViewModel>()

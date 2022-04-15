@@ -11,5 +11,5 @@ object UIModules {
         }
     }
 
-    val all = arrayListOf(uiModules)
+    val all = arrayOf(uiModules)
 }

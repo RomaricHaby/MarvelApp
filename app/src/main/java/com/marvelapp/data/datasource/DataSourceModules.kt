@@ -12,5 +12,5 @@ object DataSourceModules {
        }
     }
 
-    val all = arrayListOf(characterDataSourceModule)
+    val all = arrayOf(characterDataSourceModule)
 }

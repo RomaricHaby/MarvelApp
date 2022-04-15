@@ -12,5 +12,5 @@ object RepositoryModules {
         }
     }
 
-    val all = arrayListOf(characterRepository)
+    val all = arrayOf(characterRepository)
 }

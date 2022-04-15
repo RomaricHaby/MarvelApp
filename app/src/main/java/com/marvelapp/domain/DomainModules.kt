@@ -11,5 +11,5 @@ object DomainModules {
         }
     }
 
-    val all = arrayListOf(useCaseModules)
+    val all = arrayOf(useCaseModules)
 }

@@ -1,5 +1,7 @@
 package com.marvelapp.data.repository
 
+import com.marvelapp.model.character.Character
+
 interface CharacterRepository {
-    fun getPaginatedCharacter()
+    suspend fun getPaginatedCharacter(): List<Character>
 }

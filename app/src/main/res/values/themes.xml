@@ -2,9 +2,13 @@
 <resources>
 
     <style name="Theme.MarvelApp" parent="Theme.MarvelApp.base">
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MarvelApp.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MarvelApp.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MarvelApp.LargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MarvelApp.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.MarvelApp.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MarvelApp.LargeComponent
+        </item>
         <item name="textAppearanceDisplaySmall">@style/TextAppearance.AppCompat.Display1</item>
     </style>
 

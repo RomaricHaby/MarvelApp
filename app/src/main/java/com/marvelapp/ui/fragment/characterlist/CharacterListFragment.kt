@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.marvelapp.R
+import com.marvelapp.ui.fragment.adapter.CharacterAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterListFragment : Fragment() {
@@ -27,8 +30,16 @@ class CharacterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.allCharacters.observe(viewLifecycleOwner) {
             Log.i(TAG, "onViewCreated: $it")
+            val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewCharacter)
+
+            recyclerView.layoutManager = LinearLayoutManager(context)
+
+
+            val adapter = context?.let { context -> CharacterAdapter(it, context) }
+            recyclerView.adapter = adapter
         }
     }
 }

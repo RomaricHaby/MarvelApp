@@ -3,11 +3,11 @@ name: Workflow - Feature
 on:
   push:
     branches:
-      - 'feature/*'
+      - 'develop'
 jobs:
   BuildAPK:
     runs-on: ubuntu-20.04
-    steps: 
+    steps:
       - uses: actions/checkout@v3
       - run: chmod +x gradlew
       - run: |
@@ -35,9 +35,11 @@ jobs:
             --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
             "${API_PRIVATE_KEY_MARVEL_ASC_FILE}"> "apimarvel.properties"
 
-      - run: ./gradlew -Pversion.buildNumber="${GITHUB_RUN_NUMBER}" assembleDevelopmentDebug
+      - run: ./gradlew test
+      - run: ./gradlew -Pversion.buildNumber="${GITHUB_RUN_NUMBER}" assembleDevelopmentRelease
       - uses: actions/upload-artifact@v3
         with:
           name: development-realease-apk
-          path: app/build/outputs/apk/development/debug/app-development-debug.apk
+          path: app/build/outputs/apk/development/debug/app-development-release.apk
+
 

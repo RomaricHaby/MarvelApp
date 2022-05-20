@@ -1,6 +1,7 @@
 package com.marvelapp.model.character
 
 import com.google.gson.annotations.SerializedName
+import com.marvelapp.model.common.Thumbnail
 import java.io.Serializable
 
 

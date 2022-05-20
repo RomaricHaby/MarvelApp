@@ -1,5 +1,6 @@
 package com.marvelapp.data.networking
 
+import com.marvel.model.comic.ResponseComicsAPI
 import com.marvelapp.model.character.ResponseCharactersAPI
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,4 +15,10 @@ interface CharacterService {
     suspend fun getCharacterByID(
         @Path("id") id: Int,
     ): Response<ResponseCharactersAPI>
+
+    @GET("/v1/public/characters/{id}/comics")
+    suspend fun getCharacterComics(
+        @Path("id") id: Int,
+    ): Response<ResponseComicsAPI>
+
 }

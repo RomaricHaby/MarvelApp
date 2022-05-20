@@ -33,7 +33,7 @@ class DetailCharacterFragment : Fragment() {
         val characterImageView = view.findViewById<ImageView>(R.id.CharacterDetailImage)
         val characterName = view.findViewById<TextView>(R.id.CharacterDetailName)
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
+
 
         viewModel.getCharacter().observe(viewLifecycleOwner){ marvelCharacter ->
             characterName.text = marvelCharacter.name
@@ -43,8 +43,9 @@ class DetailCharacterFragment : Fragment() {
                 transformations(CircleCropTransformation())
             }
         }
-        /*viewModel.getComics().observe(viewLifecycleOwner){ comics ->
+        viewModel.getComics().observe(viewLifecycleOwner){ comics ->
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
             recyclerView.adapter = ComicsAdapter(comics)
-        }*/
+        }
     }
 }

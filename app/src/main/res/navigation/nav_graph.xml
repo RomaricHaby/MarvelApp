@@ -18,8 +18,7 @@
         android:id="@+id/detailCharacterFragment"
         android:name="com.marvelapp.ui.fragment.characterdetail.DetailCharacterFragment"
         android:label="fragment_detail_character"
-        tools:layout="@layout/fragment_detail_character"
-        >
+        tools:layout="@layout/fragment_detail_character">
         <argument
             android:name="characterId"
             app:argType="integer" />

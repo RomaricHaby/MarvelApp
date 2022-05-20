@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.marvel.model.comic.Comic
 
-class ComicsAdapter (private val comics: List<Comic>):
+class ComicsAdapter(private val comics: List<Comic>) :
     RecyclerView.Adapter<ComicsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicsViewHolder {
         return ComicsViewHolder.newInstance(parent)

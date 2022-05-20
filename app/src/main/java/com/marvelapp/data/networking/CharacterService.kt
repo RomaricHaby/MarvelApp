@@ -12,6 +12,6 @@ interface CharacterService {
 
     @GET("/v1/public/characters/{id}")
     suspend fun getCharacterByID(
-        @Path("id") id: String,
+        @Path("id") id: Int,
     ): Response<ResponseCharactersAPI>
 }

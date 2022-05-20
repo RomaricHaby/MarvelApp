@@ -21,4 +21,23 @@ class CharacterRemoteDataSourceImpl(
             emptyList()
         }
     }
+
+
+    override suspend fun getCharacter(id: Int): Result<Character> {
+        return try {
+            val response: Response<ResponseCharactersAPI> = characterService.getCharacterByID(id)
+
+            if (response.isSuccessful) {
+                val character = response.body()?.dataCharacters?.results?.first()
+
+                if (character != null) {
+                    return Result.success(character)
+                } else throw IllegalStateException(response.message())
+
+            } else throw IllegalStateException(response.message())
+
+        } catch (t: Throwable) {
+            Result.failure(t)
+        }
+    }
 }

@@ -35,6 +35,8 @@ class CharacterViewHolder private constructor(
             placeholder(R.drawable.ic_launcher_foreground)
             transformations(RoundedCornersTransformation())
         }
+
+
     }
 
 

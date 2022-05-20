@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marvelapp.R
-import com.marvelapp.ui.fragment.adapter.CharacterAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterListFragment : Fragment() {
@@ -38,7 +37,7 @@ class CharacterListFragment : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(context)
 
 
-            val adapter = context?.let { context -> CharacterAdapter(it, context) }
+            val adapter = CharacterAdapter(it)
             recyclerView.adapter = adapter
         }
     }

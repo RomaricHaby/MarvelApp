@@ -119,6 +119,7 @@ dependencies {
 
     // Koin Core features
     implementation "io.insert-koin:koin-android:3.1.6"
+    testImplementation("io.insert-koin:koin-test-junit4:3.1.6")
     // Koin Test features
     testImplementation "io.insert-koin:koin-test:3.1.6"
 
@@ -132,6 +133,7 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.2"
 
     // Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"

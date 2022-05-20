@@ -4,5 +4,5 @@ import com.marvelapp.model.character.Character
 
 interface CharacterRemoteDataSource {
     suspend fun getAllCharacter(): List<Character>
-    suspend fun getCharacter(id: Int): Result<Character>
+    suspend fun getCharacterById(id: Int): Result<Character>
 }

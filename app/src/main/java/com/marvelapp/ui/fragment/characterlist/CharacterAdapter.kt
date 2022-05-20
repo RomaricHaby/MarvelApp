@@ -1,9 +1,8 @@
-package com.marvelapp.ui.fragment.adapter
+package com.marvelapp.ui.fragment.characterlist
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.marvelapp.model.character.Character
-import com.marvelapp.ui.viewholder.CharacterViewHolder
 
 
 class CharacterAdapter(

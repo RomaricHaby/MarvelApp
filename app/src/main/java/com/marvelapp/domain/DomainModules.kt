@@ -8,6 +8,9 @@ object DomainModules {
             GetAllCharacterUseCase(get())
         }
         factory {
+            GetCharacterByIdUseCase(get())
+        }
+        factory {
             GetMD5UseCase()
         }
     }

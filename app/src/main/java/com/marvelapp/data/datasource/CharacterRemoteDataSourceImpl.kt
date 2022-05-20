@@ -23,7 +23,7 @@ class CharacterRemoteDataSourceImpl(
     }
 
 
-    override suspend fun getCharacter(id: Int): Result<Character> {
+    override suspend fun getCharacterById(id: Int): Result<Character> {
         return try {
             val response: Response<ResponseCharactersAPI> = characterService.getCharacterByID(id)
 

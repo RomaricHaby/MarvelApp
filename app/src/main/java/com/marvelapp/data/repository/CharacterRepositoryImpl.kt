@@ -9,4 +9,8 @@ class CharacterRepositoryImpl(
     override suspend fun getPaginatedCharacter(): List<Character> {
         return characterRemoteDataSource.getAllCharacter()
     }
+
+    override suspend fun getCharacterById(id: Int): Character? {
+        return characterRemoteDataSource.getCharacterById(id).getOrNull()
+    }
 }

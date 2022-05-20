@@ -27,13 +27,13 @@ class CharacterNetworkingTest : KoinTest {
     fun getCharacterByID() = runBlocking {
         val expected = MockResponse().apply {
             setResponseCode(200)
-            setBody(ResourcesJsonManager.loadResource("one_character.json"))
+            setBody(ResourcesJsonManager.loadResource("one_reponse_character.json"))
         }
         server.enqueue(expected)
 
         val actual = source.getCharacterByID(1011334).body()
 
-        assertEquals(ObjectProvider.oneCharacter, actual)
+        assertEquals(ObjectProvider.oneResponseCharacter, actual)
     }
 
 

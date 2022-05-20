@@ -8,13 +8,19 @@ import com.marvelapp.model.character.ResponseCharactersAPI
 
 object ObjectProvider {
 
-    val oneCharacter: ResponseCharactersAPI = Gson().fromJson(
-        ResourcesJsonManager.loadResource("one_character.json"),
+    val oneResponseCharacter: ResponseCharactersAPI = Gson().fromJson(
+        ResourcesJsonManager.loadResource("one_reponse_character.json"),
         object : TypeToken<ResponseCharactersAPI>() {}.type
     )
 
+    val oneCharacter: Character = Gson().fromJson(
+        ResourcesJsonManager.loadResource("one_character.json"),
+        object : TypeToken<Character>() {}.type
+    )
+
+
     val twoCharacters: List<Character> = Gson().fromJson(
-        ResourcesJsonManager.loadResource("two_characters.json"),
+        ResourcesJsonManager.loadResource("twenty_characters.json"),
         object : TypeToken<List<Character>>() {}.type
     )
 

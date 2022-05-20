@@ -3,6 +3,7 @@ package com.marvelapp.ui
 import android.app.Application
 import com.marvelapp.data.datasource.DataSourceModules
 import com.marvelapp.data.networking.NetworkingModules
+import com.marvelapp.data.paging.PagingModules
 import com.marvelapp.data.repository.RepositoryModules
 import com.marvelapp.domain.DomainModules
 import org.koin.android.ext.koin.androidContext
@@ -18,7 +19,8 @@ class MarvelApplication : Application() {
                 *RepositoryModules.all,
                 *DomainModules.all,
                 *DataSourceModules.all,
-                *NetworkingModules.all
+                *NetworkingModules.all,
+                *PagingModules.all
             )
         }
     }

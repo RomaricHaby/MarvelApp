@@ -1,23 +1,21 @@
 package com.marvelapp.ui.fragment.characterlist
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import com.marvelapp.model.character.Character
 
-
 class CharacterAdapter(
-    private var characterList: List<Character>,
-) :
-    RecyclerView.Adapter<CharacterViewHolder>() {
+    differCallback: DiffUtil.ItemCallback<Character>
+) : PagingDataAdapter<Character, CharacterViewHolder>(differCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         return CharacterViewHolder.newInstance(parent)
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characterList[position])
+        val character = getItem(position)
+        character?.let { holder.bind(it) }
     }
-
-    override fun getItemCount() = characterList.size
 
 }

@@ -47,6 +47,8 @@ class CharacterViewHolder private constructor(
                 transformations(RoundedCornersTransformation())
             }
         }
+
+
     }
 
 

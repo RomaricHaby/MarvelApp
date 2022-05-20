@@ -1,5 +1,6 @@
 package com.marvelapp.model.character
 
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 import com.marvelapp.model.common.Thumbnail
 import java.io.Serializable
@@ -16,4 +17,18 @@ data class Character(
     @SerializedName("series") val series: ExtraDataCharacter,
     @SerializedName("stories") val stories: ExtraDataCharacter,
     @SerializedName("events") val events: ExtraDataCharacter
-) : Serializable
+) : Serializable {
+
+    companion object : DiffUtil.ItemCallback<Character>() {
+        override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(
+            oldItem: Character,
+            newItem: Character
+        ): Boolean {
+            return oldItem == newItem
+        }
+    }
+}

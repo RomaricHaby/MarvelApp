@@ -10,17 +10,21 @@ import retrofit2.Response
 class CharacterRemoteDataSourceImpl(
     private val characterService: CharacterService
 ) : CharacterRemoteDataSource {
-    override suspend fun getAllCharacter(): List<Character> {
+
+    override suspend fun getAllCharacter(offset: Int): Result<Pair<Int, List<Character>>> {
         return try {
-            val response: Response<ResponseCharactersAPI> = characterService.getAllCharacters()
+            val response: Response<ResponseCharactersAPI> =
+                characterService.getAllCharacters(offset)
 
             if (response.isSuccessful) {
-                response.body()?.dataCharacters?.results
-                    ?: throw IllegalStateException("Body is null")
+                val nextOffset = response.body()?.dataCharacters?.offset?.plus(20) ?: offset
+                val characterList = response.body()?.dataCharacters?.results
+                Result.success(Pair(nextOffset, characterList ?: emptyList()))
+
             } else throw IllegalStateException(response.message())
 
         } catch (t: Throwable) {
-            emptyList()
+            Result.failure(t)
         }
     }
 

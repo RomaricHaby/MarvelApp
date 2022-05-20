@@ -12,11 +12,11 @@ jobs:
       - run: chmod +x gradlew
       - run: |
           KEYSTORE_P12_ASC_FILE="keystore.asc"
-          echo "${{ secrets.KEYSTORE_P12}}">> "${KEYSTORE_P12_ASC_FILE}"
+          echo "${{ secrets.KEYSTORE_P12 }}">> "${KEYSTORE_P12_ASC_FILE}"
           gpg \
             -d \
             --batch \
-            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            --passphrase "$(echo "${{ secrets.PASSWORD }}" | base64 --decode)" \
             "${KEYSTORE_P12_ASC_FILE}"> "keystore.p12"
       - run: |
           KEYSTORE_PROPERTIES_ASC_FILE="keystore_properties.asc"
@@ -24,7 +24,7 @@ jobs:
           gpg \
             -d \
             --batch \
-            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            --passphrase "$(echo "${{ secrets.PASSWORD }}" | base64 --decode)" \
             "${KEYSTORE_PROPERTIES_ASC_FILE}"> "keystore.properties"
       - run: |
           API_PRIVATE_KEY_MARVEL_ASC_FILE="apimarvel.asc"
@@ -32,9 +32,9 @@ jobs:
           gpg \
             -d \
             --batch \
-            --passphrase "$(echo "${{ secrets.PASSWORD}}" | base64 --decode)" \
+            --passphrase "$(echo "${{ secrets.PASSWORD }}" | base64 --decode)" \
             "${API_PRIVATE_KEY_MARVEL_ASC_FILE}"> "apimarvel.properties"
-          
+
       - run: ./gradlew test
       - run: ./gradlew -Pversion.buildNumber="${GITHUB_RUN_NUMBER}" assembleDevelopmentDebug
       - uses: actions/upload-artifact@v3

@@ -5,7 +5,7 @@
 * Detailed view of a character with a paginated list of its comics
 * Unit testing on domain and data
 * Workflow, I have an error it can't find the API keys for the unit tests run from the workflow but on Android Studio its working fine 
-* Small problem with I have not created my develop branch from master so I can't merge it on, end I did some Houdin 😂. So I passed the develop branch in default.
+* Small problem with Git Hub I have not created my develop branch from master so I can't merge it on, end I did some Houdin 😂. So I passed the develop branch in default.
 
 ## Screenshot
 
